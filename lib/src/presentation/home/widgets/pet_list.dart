@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/models/models.dart';
@@ -11,6 +12,7 @@ class PetList extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ListView.separated(
+      shrinkWrap: true,
         separatorBuilder: (_, index) {
           return const SizedBox(height: 20);
         },
@@ -82,11 +84,10 @@ class PetList extends StatelessWidget {
                     child: SizedBox(
                       height: size.height * .25,
                       width: size.width * .35,
-                      child: Image.network(
-                        //'',
-                        pets[index].image ?? '',
+                      child: CachedNetworkImage(
+                        imageUrl: pets[index].image ?? '',
                         fit: BoxFit.fill,
-                        errorBuilder: (_, obj, task) {
+                        errorWidget: (_, obj, task) {
                           return const Icon(Icons.error_outline);
                         },
                       ),
