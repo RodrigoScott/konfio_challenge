@@ -5,12 +5,13 @@ class CustomAppBar {
     return PreferredSize(
       preferredSize: const Size(double.infinity, kToolbarHeight),
       child: AppBar(
+        backgroundColor: Colors.transparent,
         title: Center(
             child: Text(
           'Dogs We Love',
           style: TextStyle(
               fontSize: size.width * .08,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
               color: const Color(0xff333333)),
         )),
         leading: Padding(
