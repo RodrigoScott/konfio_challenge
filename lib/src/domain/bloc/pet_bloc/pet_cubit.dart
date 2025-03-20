@@ -12,6 +12,11 @@ class PetCubit extends Cubit<PetState> {
   Future<void> getPet() async {
     emit(PetLoading());
     List<PetModel>? petList = await PetService().getPetsList();
-    emit(PetLoaded(pets: petList));
+    if(petList != null){
+      emit(PetLoaded(pets: petList));
+    }else{
+      emit(PetError());
+    }
+
   }
 }

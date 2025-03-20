@@ -9,9 +9,7 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar().customApp(size),
       backgroundColor: const Color(0xffF8F8F8),
@@ -21,14 +19,12 @@ class HomePageView extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           case const (PetLoaded):
             state as PetLoaded;
-            if (state.pets != null && state.pets!.isNotEmpty){
-              List<PetModel>? pets =state.pets;
-              return ListView.builder(
-                  itemCount: state.pets!.length, itemBuilder: (_, index) {
-                return Text(pets![index].dogName??'');
-              });
-            }else{
-              return const Center(child: Text('No se ha podido cargar la información'));
+            if (state.pets != null && state.pets!.isNotEmpty) {
+              List<PetModel>? pets = state.pets;
+              return PetList(pets: pets!);
+            } else {
+              return const Center(
+                  child: Text('No se ha podido cargar la información'));
             }
           default:
             return const Center(child: CircularProgressIndicator());
