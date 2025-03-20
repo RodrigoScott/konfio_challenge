@@ -1,0 +1,1 @@
+export 'package:konfio_challenge/src/domain/models/pet/pet_model.dart';
