@@ -9,7 +9,7 @@ part 'pet_state.dart';
 class PetCubit extends Cubit<PetState> {
   PetCubit() : super(PetInitial());
 
-  Future<void> getPet(int page) async {
+  Future<void> getPet() async {
     emit(PetLoading());
     List<PetModel>? petList = await PetService().getPetsList();
     emit(PetLoaded(pets: petList));
