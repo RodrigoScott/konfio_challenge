@@ -63,7 +63,7 @@ class DatabaseHelper {
 
   Future<int> deletePetList(Database dbClient) async {
     return await dbClient
-        .rawDelete('DELETE * FROM pets');
+        .rawDelete('DELETE FROM pets');
   }
 
 }
