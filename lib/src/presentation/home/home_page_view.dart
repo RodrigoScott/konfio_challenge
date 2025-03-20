@@ -11,7 +11,7 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: CustomAppBar().customApp(size),
+      appBar: CustomAppBar().customApp(context, size),
       backgroundColor: const Color(0xffF8F8F8),
       body: BlocBuilder<PetCubit, PetState>(builder: (blocContext, state) {
         switch (state.runtimeType) {

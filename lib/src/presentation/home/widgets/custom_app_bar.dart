@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomAppBar {
-  customApp(Size size) {
+  customApp(BuildContext context, Size size) {
     return PreferredSize(
       preferredSize: const Size(double.infinity, kToolbarHeight),
       child: AppBar(
@@ -19,7 +20,7 @@ class CustomAppBar {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
-
+              showExitDialog(context);
             },
           ),
         ),
@@ -31,5 +32,35 @@ class CustomAppBar {
         ],
       ),
     );
+  }
+
+  Future<void> showExitDialog(BuildContext context) {
+    return showDialog<void>(
+              context: context,
+              barrierDismissible: true,
+              // false = user must tap button, true = tap outside dialog
+              builder: (BuildContext dialogContext) {
+                return AlertDialog(
+                  backgroundColor: const Color(0xFFfefffe),
+                  title: const Text('¡Espera!'),
+                  content: const Text('¿Seguro que quieres salir de la aplicación?'),
+                  actions: <Widget>[
+                    TextButton(
+                      child: const Text('Aceptar', style: TextStyle(color: Color(0xff383838)),),
+                      onPressed: () {
+                        SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                      },
+                    ),
+                    TextButton(
+                      child: const Text('Cancelar', style: TextStyle(color: Color(0xff383838)),),
+                      onPressed: () {
+                        Navigator.of(dialogContext)
+                            .pop(); // Dismiss alert dialog
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
   }
 }
