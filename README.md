@@ -63,12 +63,12 @@ Esta aplicación implementa la API de jsonblob.com para la obtención de datos d
 
 - Ícono back:
 
-![back](https://github.com/RodrigoScott/konfio_challenge/blob/RodrigoScott/task001/assets/3.jpg?raw=true)
+![Back](https://github.com/RodrigoScott/konfio_challenge/blob/RodrigoScott/task001/assets/3.jpg?raw=true)
 
 ## APK
-- (disponible solo por 3 días a partir del 18/03/2025)
+- (disponible solo por 3 días a partir del 21/03/2025)
 
-*Diawi APK* - https://i.diawi.com/2b1mBK
+*Diawi APK* - https://i.diawi.com/gfn3N7
 
 ## Desarrolladores
 * **Rodrigo Scott** - *Developer* - [Perfil](https://github.com/RodrigoScott)
