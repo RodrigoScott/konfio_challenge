@@ -60,9 +60,8 @@ class Dialogs {
               ),
               onPressed: () {
                 Navigator.of(dialogContext).pop();
-                PetRepository().deletePets().then((value) {
-                  context.read<PetCubit>().getPet();
-                });
+                PetRepository().deletePets();
+                context.read<PetCubit>().getPet();
               },
             ),
             TextButton(
